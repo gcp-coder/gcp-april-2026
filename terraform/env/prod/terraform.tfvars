@@ -1,9 +1,9 @@
 env = "prod"
 project_id      = "dev-env-492715"
-region          = "asia-south1"
-bucket_name     = "clt-prod-492715-tf-processed"
-location        = "ASIA-SOUTH1"
-storage_class   = "STANDARD"
+region          = "asia-south1" 
+bucket_name     = "clt-prod-492715-tf-final" 
+location        = "ASIA-SOUTH1" 
+storage_class   = "STANDARD" 
 versioning      = true
 lifecycle_days  = 730
 

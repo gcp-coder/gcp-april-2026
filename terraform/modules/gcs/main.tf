@@ -1,34 +1,25 @@
-resource "google_storage_bucket" "bucket" {
-  name          = var.bucket_name
+# this is raw bucket - gs://prod-clt-prod-492715-tf-final/
+resource "google_storage_bucket" "raw" {
+  name          = "dev-${var.bucket_name}" # first bucket name is comming here 
   location      = var.location
   storage_class = var.storage_class
   force_destroy = true
   uniform_bucket_level_access = true
-
-  versioning {
-    enabled = var.versioning
-  }
-
-  lifecycle_rule {
-    action {
-      type = "Delete"
-    }
-    condition {
-      age = var.lifecycle_days
-    }
-  }
-
+ 
   labels = {
     env = var.env
   }
 }
 
-# Folder simulation
-resource "google_storage_bucket_object" "folders" {
-  for_each = toset(var.folders)
-
-  name    = each.value
-  bucket  = google_storage_bucket.bucket.name
-  content = " "
+resource "google_storage_bucket" "processed" {
+  name          = "dev-${var.bucket_name}-processed" # first bucket name is comming here 
+  location      = var.location
+  storage_class = var.storage_class
+  force_destroy = true
+  uniform_bucket_level_access = true
+ 
+  labels = {
+    env = var.env
+  }
 }
 

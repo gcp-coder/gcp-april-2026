@@ -1,8 +1,7 @@
 env = "dev"
 project_id      = "dev-env-492715"
 region          = "asia-south1"
-
-bucket_name     = "clt-dev-492715-tf-processed"
+bucket_name     = "clt-dev-492715-tf-final"
 location        = "ASIA-SOUTH1"
 storage_class   = "STANDARD"
 versioning      = true
